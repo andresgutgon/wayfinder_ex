@@ -1,4 +1,4 @@
-defmodule TestController do
+defmodule TestApp.TestController do
   import Plug.Conn
 
   @moduledoc """

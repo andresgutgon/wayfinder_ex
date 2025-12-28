@@ -28,13 +28,13 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y inotify-tools
 
       - name: Set up Elixir and OTP
-        uses: erlef/setup-beam@v1
+        uses: erlef/setup-beam@v1.18.2
         with:
           elixir-version: ${{ matrix.elixir }}
           otp-version: ${{ matrix.otp }}
 
       - name: 📦 Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
@@ -45,14 +45,14 @@ jobs:
         run: npm install -g pnpm
 
       - name: Restore dependencies cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: deps
           key: deps-${{ runner.os }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: deps-${{ runner.os }}-
 
       - name: 💾 Cache pnpm store
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('assets/pnpm-lock.yaml') }}
@@ -69,7 +69,7 @@ jobs:
         run: mkdir -p priv/plts
 
       - name: Cache PLT files
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: priv/plts
           key: plt-${{ runner.os }}-${{ hashFiles('mix.lock') }}

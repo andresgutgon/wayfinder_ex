@@ -8,7 +8,7 @@ defmodule Wayfinder.RoutesWatcherTest do
     def generate(_router, _otp_app), do: :ok
   end
 
-  @router_module TestRouter
+  @router_module TestApp.TestRouter
 
   setup do
     if Process.whereis(RoutesWatcher) do
