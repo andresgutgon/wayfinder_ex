@@ -69,7 +69,13 @@ defmodule Wayfinder.Processor do
 
   defp drop_app_namespace([_app | rest]), do: rest
 
-  # Possible to have routes without controller. Skip them.
-  defp valid_wayfinder_route?(%{plug: controller}) when is_atom(controller), do: true
+  # Valid routes must have:
+  # - plug (controller) as an atom
+  # - plug_opts (action) as an atom
+  # This filters out forward routes where plug_opts is a keyword list
+  defp valid_wayfinder_route?(%{plug: controller, plug_opts: action})
+       when is_atom(controller) and is_atom(action),
+       do: true
+
   defp valid_wayfinder_route?(_), do: false
 end
