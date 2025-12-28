@@ -1,3 +1,10 @@
+## [v0.1.6](https://github.com/andresgutgon/wayfinder_ex/compare/v0.1.5...v0.1.6) - 28-12-2025
+
+### What's Changed
+
+- Bump version to 0.1.6
+- Ignore Phoenix [forward](https://hexdocs.pm/phoenix/Phoenix.Router.html#forward/4) routes in the route extraction. More details [here](https://github.com/andresgutgon/wayfinder_ex/pull/15)
+
 ## [v0.1.5](https://github.com/andresgutgon/wayfinder_ex/compare/v0.1.4...v0.1.5) - 22-07-2025
 
 ### What's Changed
